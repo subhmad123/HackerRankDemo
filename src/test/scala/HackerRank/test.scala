@@ -1,0 +1,5 @@
+package HackerRank
+
+object test {
+
+}
