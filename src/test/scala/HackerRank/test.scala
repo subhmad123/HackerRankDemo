@@ -1,5 +1,0 @@
-package HackerRank
-
-object test {
-
-}
