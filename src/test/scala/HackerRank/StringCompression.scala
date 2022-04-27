@@ -1,9 +1,9 @@
 package HackerRank
 
+//import scala.io.StdIn.readLine
+//
 import scala.io.StdIn.readLine
-
-import scala.io.StdIn.readLine
-object Solution {
+object Solution11 {
 
   def main(args: Array[String]) {
 
@@ -13,9 +13,9 @@ object Solution {
     print(count_calculator(input_string))
 
   }
-  def count_calculator(input_string:String):String=
+  def count_calculator(input_string:String):StringBuffer=
   {
-    var output_string:String=""
+    var output_string=new StringBuffer()
     var index=0
     while (index <= input_string.length - 1)
     {
@@ -29,12 +29,12 @@ object Solution {
       }
       index=intermediate_count
       if(count==1)
-        output_string+=concerned_char
+        output_string.append(concerned_char)
       else
-        output_string+=(concerned_char+count.toString)
+        output_string.append(concerned_char+count.toString)
       index+=1
     }
     output_string
   }
 }
-
+//
