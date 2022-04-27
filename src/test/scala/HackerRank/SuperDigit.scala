@@ -2,46 +2,24 @@ package HackerRank
 
 import scala.annotation.tailrec
 import scala.io.StdIn.readInt
+import scala.io.StdIn.readLine
+object Solution {
 
-object SuperDigit extends App {
-      println("please enter the required number to check")
-      var number:Int=readInt()
-      println("please enter the repetition frequency")
-      var frequency:Int=readInt()
-      //fill function creates repetition of any number in required frequency and appends to list
-      val final_num=List.fill(frequency)(number).mkString("").toInt
-      println("super digit of input number is "+superDigit(final_num))
+  def main(args: Array[String]) {
+    var value=readLine()
+    //println("please enter the required number to check")
+    var number:String=value.split(" ")(0)
+    //println("please enter the repetition frequency")
+    var frequency:Int=value.split(" ")(1).toInt
+    while(frequency!=1||number.length>1){
+      number=find_super(number,frequency).toString
+      frequency=1
+    }
+    println(number)
+  }
 
-  /**
-   * this function calculates and returns sum of digits of a given number
-   * @param num
-   * @return
-   */
-      def get_sum(num:Int): Int =
-      {
-            var temp=num
-            var sum:Int=0
-            while(temp!=0){
-              sum=sum+temp%10
-              temp=temp/10
-            }
-            sum
-      }
-
-  /**
-   * this function recursively sums up everyDigit of the numbers
-   * @param number
-   * @return
-   */
-
-     @tailrec
-     def superDigit(number:Int): Int =
-      {
-            if(number.toString.length==1){
-               number
-            }
-            else{
-              superDigit(get_sum(number))
-            }
-      }
+  def find_super(number:String,frequency: Int):Long={
+    val sum:Long=number.map(x=>x.toLong-'0').sum
+    sum*frequency
+  }
 }

@@ -2,46 +2,46 @@ package HackerRank
 
 import scala.io.StdIn.{readInt, readLine}
 
-object SwapNodes {
+import scala.io.StdIn.{readInt, readLine}
+object Solution {
   //creating left and right node array for storing child node index of every node
-  val left_nodes=new Array[Int](1024)
-  val right_nodes=new Array[Int](1024)
+  val left_nodes=new Array[Int](2000)
+  val right_nodes=new Array[Int](2000)
   //output array stores the traversal output of the tree
-  val output_array=new Array[Int](1024)
+  val output_array=new Array[Int](2000)
   var output_array_index:Int=0
 
 
-  def main(args:Array[String]): Unit ={
-     take_inputs()
+  def main(args: Array[String]) {
+    take_inputs()
   }
-
   /**
    *this function takes inputs from the user and stores child nodes indexes in left and right node arrays. For each input testcase,it calls swap function and then traverses the tree
    */
   def take_inputs(): Unit =
   {
-          val number_of_nodes=readInt()
-          for(parent_node<-1 to number_of_nodes)
-          {
-            //for each line of child index input, splitting it with space
-            val array_input=(readLine().split(" ").map(_.toInt))
-            //storing child node index at same index of parent
-            left_nodes(parent_node)=array_input(0)
-            right_nodes(parent_node)=array_input(1)
-          }
+    val number_of_nodes=readInt()
+    for(parent_node<-1 to number_of_nodes)
+    {
+      //for each line of child index input, splitting it with space
+      val array_input=(readLine().split(" ").map(_.toInt))
+      //storing child node index at same index of parent
+      left_nodes(parent_node)=array_input(0)
+      right_nodes(parent_node)=array_input(1)
+    }
 
 
-          val no_of_depths_for_swapping=readInt()
-          for(j<-1 to no_of_depths_for_swapping)
-          {
-                  val depth_to_swap=readInt();
-                  //calling swap_nodes function,starting with root node and passing depth of root node
-                  swap_nodes(1,1,depth_to_swap);
-                  //passing starting index to store the tree status starting from leftmost part of the tree
-                  output_array_index=0
-                  current_status_tree(1)
-                  println(output_array.take(number_of_nodes).mkString(" "));
-         }
+    val no_of_depths_for_swapping=readInt()
+    for(j<-1 to no_of_depths_for_swapping)
+    {
+      val depth_to_swap=readInt();
+      //calling swap_nodes function,starting with root node and passing depth of root node
+      swap_nodes(1,1,depth_to_swap);
+      //passing starting index to store the tree status starting from leftmost part of the tree
+      output_array_index=0
+      current_status_tree(1)
+      println(output_array.take(number_of_nodes).mkString(" "));
+    }
   }
 
 
@@ -80,5 +80,4 @@ object SwapNodes {
 
     }
   }
-
 }

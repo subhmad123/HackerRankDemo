@@ -4,13 +4,14 @@ import scala.io.StdIn.{readInt, readLine}
 
 object GameOfKyles extends  App{
   //taking input from user on number of testcases and for each testcase,calling the predict_win method and printing status
-    println("Please enter the number of testcases")
+    //println("Please enter the number of testcases")
     val no_of_testcases=readInt()
     for(i<-0 until no_of_testcases){
-        println("please enter the starting number of kyles")
+       // println("please enter the starting number of kyles")
         val starting_number=readInt()
-        val current_status_pins=readLine("please enter the current status")
+        val current_status_pins=readLine()
         val list_pins=predict_win(starting_number,current_status_pins)
+        print(list_pins)
         if(list_pins.length%2==0)
           println("LOSE")
         else
