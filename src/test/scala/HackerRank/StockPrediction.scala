@@ -9,7 +9,7 @@ object Solution111 {
 
     def sol(index: Int, margin: Int) = {
       val target = stock(index)
-      searchLeft(index - 1) + searchRight(index + 1) - 1
+
 
       def searchLeft(position: Int): Int = {
         if (position < 0 || isInvalid(stock(position))) {
@@ -32,7 +32,7 @@ object Solution111 {
       def isInvalid(price: Int) = {
         price < target || price - target > margin
       }
-
+      searchLeft(index - 1) + searchRight(index + 1) - 1
     }
 
     for (i <- 1 to num_of_queries) {
